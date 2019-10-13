@@ -12,7 +12,7 @@
     <RootNamespace>AroundTheWorld.Prism.Droid</RootNamespace>
     <AssemblyName>AroundTheWorld.Prism.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AroundTheWorld.Prism\AroundTheWorld.Prism.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{8E86C4C7-E524-4BFF-8C4B-323A1E7E2F6E}</Project>
       <Name>AroundTheWorld.Prism</Name>
     </ProjectReference>
   </ItemGroup>
