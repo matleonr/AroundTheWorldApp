@@ -191,10 +191,13 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AroundTheWorld.Prism\AroundTheWorld.Prism.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{8E86C4C7-E524-4BFF-8C4B-323A1E7E2F6E}</Project>
       <Name>AroundTheWorld.Prism</Name>
     </ProjectReference>
   </ItemGroup>

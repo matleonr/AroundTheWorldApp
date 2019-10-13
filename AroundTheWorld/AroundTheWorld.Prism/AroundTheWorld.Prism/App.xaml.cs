@@ -4,6 +4,7 @@ using AroundTheWorld.Prism.ViewModels;
 using AroundTheWorld.Prism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using AroundTheWorld.Prism.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace AroundTheWorld.Prism
@@ -23,13 +24,14 @@ namespace AroundTheWorld.Prism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/CountriesIndexPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountriesIndexPage, CountriesIndexPageViewModel>();
         }
     }
 }

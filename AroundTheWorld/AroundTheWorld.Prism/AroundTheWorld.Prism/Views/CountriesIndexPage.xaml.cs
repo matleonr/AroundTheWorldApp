@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace AroundTheWorld.Prism.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class CountriesIndexPage : ContentPage
     {
-        public MainPage()
+        public CountriesIndexPage()
         {
             InitializeComponent();
         }
