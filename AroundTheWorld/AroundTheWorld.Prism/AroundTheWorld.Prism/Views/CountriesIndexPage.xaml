@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="AroundTheWorld.Prism.Views.CountriesIndexPage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="AroundTheWorld.Prism.Views.CountriesIndexPage"
              Title="{Binding Title}" BackgroundColor="Black">
 
   
@@ -20,19 +22,15 @@
                             HasShadow="True"
                             Margin="0,0,0,3">
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding SelectPetCommand}"/>
+                                <TapGestureRecognizer Command="{Binding SelectCountryCommand}"/>
                             </Frame.GestureRecognizers>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Image
-                                    Grid.Column="0"
-                                    Source="{Binding Flag}"/>
-
-                                <!--<ffimageloading:CachedImage
+                                <ffimageloadingsvg:SvgCachedImage
+                                    Aspect="AspectFit"
                                     Grid.Column="0"
                                     Source="{Binding Flag}"
                                     LoadingPlaceholder= "LoaderImage"
@@ -41,16 +39,15 @@
                                     RetryCount= "3"
                                     RetryDelay= "600"
                                     DownsampleToViewSize = "true"
-                                    WidthRequest="150"/>-->
+                                    WidthRequest="70"
+                                    Margin="0"/>
                                 <Grid
                                     Grid.Column="1">
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="2*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -104,9 +101,6 @@
                                         HorizontalTextAlignment="Start"
                                         Text="{Binding NativeName}"/> 
                                 </Grid>
-                                <Image
-                                    Grid.Column="2"
-                                    Source="ic_chevron_right"/>
                             </Grid>
                         </Frame>
                     </ViewCell>

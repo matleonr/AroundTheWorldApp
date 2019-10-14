@@ -16,7 +16,7 @@ namespace AroundTheWorld.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private bool _isRunning;
-        private ObservableCollection<CountriesResponse> _countries;
+        private ObservableCollection<CountryItemViewModel> _countries;
 
         public CountriesIndexPageViewModel( INavigationService navigationService,
                                             IApiService apiService)
@@ -31,7 +31,7 @@ namespace AroundTheWorld.Prism.ViewModels
 
         }
 
-        public ObservableCollection<CountriesResponse> Countries
+        public ObservableCollection<CountryItemViewModel> Countries
         {
             get => _countries;
             set => SetProperty(ref _countries, value);
@@ -56,7 +56,34 @@ namespace AroundTheWorld.Prism.ViewModels
                 IsRunning = false;
 
                 var list = (List<CountriesResponse>)response.Result;
-                Countries = new ObservableCollection<CountriesResponse>(list);
+                Countries = new ObservableCollection<CountryItemViewModel>(list.Select(c => new CountryItemViewModel(_navigationService)
+                {
+                    Name = c.Name,
+                    TopLevelDomain = c.TopLevelDomain,
+                    NativeName = c.NativeName,
+                    NumericCode = c.NumericCode,
+                    Alpha2Code = c.Alpha2Code,
+                    Alpha3Code = c.Alpha3Code,
+                    Languages = c.Languages,
+                    Latlng = c.Latlng,
+                    CallingCodes = c.CallingCodes,
+                    Capital = c.Capital,
+                    AltSpellings = c.AltSpellings,
+                    Area = c.Area,
+                    Region = c.Region,
+                    Subregion = c.Subregion,
+                    RegionalBlocs = c.RegionalBlocs,
+                    Population = c.Population,
+                    Demonym = c.Demonym,
+                    Gini = c.Gini,
+                    Timezones = c.Timezones,
+                    Borders = c.Borders,
+                    Currencies = c.Currencies,
+                    Translations = c.Translations,
+                    Flag = c.Flag,
+                    Cioc = c.Cioc
+                    
+                }));
 
             }
 

@@ -32,6 +32,7 @@ namespace AroundTheWorld.Prism
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<CountriesIndexPage, CountriesIndexPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
         }
     }
 }
