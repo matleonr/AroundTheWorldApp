@@ -1,85 +1,118 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AroundTheWorld.Prism.Views.CountriesIndexPage"
-             Title="{Binding Title}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="AroundTheWorld.Prism.Views.CountriesIndexPage"
+             Title="{Binding Title}" BackgroundColor="Black">
 
   
 
-    <ScrollView>
-        <StackLayout
-            Padding="10">
-            <!--<ffimageloading:CachedImage
-                Aspect="AspectFit"
-                Source="{Binding Pet.ImageUrl}"
-                LoadingPlaceholder= "LoaderImage"
-                ErrorPlaceholder= "ErrorImage"
-                CacheDuration= "50"
-                RetryCount= "3"
-                RetryDelay= "600"
-                DownsampleToViewSize = "true"
-                HeightRequest="300"
-                WidthRequest="300"/>-->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="0"
-                    FontAttributes="Bold"
-                    Text="Name"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Text="{Binding Pet.Name}"/>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    FontAttributes="Bold"
-                    Text="Race"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Text="{Binding Pet.Race}"/>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="2"
-                    FontAttributes="Bold"
-                    Text="Born"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    Text="{Binding Pet.Born, StringFormat='{0:yyyy/MM/dd}'}"/>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="3"
-                    FontAttributes="Bold"
-                    Text="Pet Type"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    Text="{Binding Pet.PetType}"/>
-                <Label
-                    Grid.Column="0"
-                    Grid.Row="4"
-                    FontAttributes="Bold"
-                    Text="Remarks"/>
-                <Label
-                    Grid.Column="1"
-                    Grid.Row="4"
-                    Text="{Binding Pet.Remarks}"/>
-            </Grid>
-        </StackLayout>
-    </ScrollView>
+    <StackLayout
+        Padding="10">
+        <ListView
+            BackgroundColor="Transparent"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            ItemsSource="{Binding Countries}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            CornerRadius="10"
+                            HasShadow="True"
+                            Margin="0,0,0,3">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectPetCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Grid.Column="0"
+                                    Source="{Binding Flag}"/>
+
+                                <!--<ffimageloading:CachedImage
+                                    Grid.Column="0"
+                                    Source="{Binding Flag}"
+                                    LoadingPlaceholder= "LoaderImage"
+                                    ErrorPlaceholder= "ErrorImage"
+                                    CacheDuration= "50"
+                                    RetryCount= "3"
+                                    RetryDelay= "600"
+                                    DownsampleToViewSize = "true"
+                                    WidthRequest="150"/>-->
+                                <Grid
+                                    Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        Grid.Row="0"
+                                        Text="Country:"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        FontSize="Small"
+                                        Text="{Binding Name}"/>
+                                    <Label
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Text="Capital:"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        FontSize="Small"
+                                        Text="{Binding Capital}"/>
+                                    <Label
+                                        Grid.Column="0"
+                                        Grid.Row="2"
+                                        Text="Population:"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        FontSize="Small"
+                                        Text="{Binding Population}"/>
+                                    <Label
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        Text="Native Name:"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"/>
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        FontSize="Small"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding NativeName}"/> 
+                                </Grid>
+                                <Image
+                                    Grid.Column="2"
+                                    Source="ic_chevron_right"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 
 </ContentPage>

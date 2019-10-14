@@ -10,14 +10,17 @@
             <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://restcountries.eu/rest/v2/all</x:String>
 
-             <!--Colors 
-            <Color x:Key="colorBackgroud">#F2F2F2</Color>
-            <Color x:Key="colorPrimary">#0468BF</Color>
-            <Color x:Key="colorSecondary">#067302</Color>
-            <Color x:Key="colorDanger">#F2055C</Color>
+             <!--Colors -->
+            <Color x:Key="colorBackgroud">#1D2326</Color>
+            <Color x:Key="colorPrimary">#467F8C</Color>
+            <Color x:Key="colorSecondary">#2E3B42</Color>
+            <Color x:Key="colorFontInverse">#2E3B42</Color>
+            <Color x:Key="colorDanger">#F5904B</Color>
+            <Color x:Key="colorFont">#C1D9CB</Color>
+            <!--
             <Color x:Key="colorAccent">#BF4904</Color>
-            <Color x:Key="colorFont">#0468BF</Color>
-            <Color x:Key="colorFontInverse">#F2F2F2</Color>
+            
+            
 
              Styles 
             <Style TargetType="Button">

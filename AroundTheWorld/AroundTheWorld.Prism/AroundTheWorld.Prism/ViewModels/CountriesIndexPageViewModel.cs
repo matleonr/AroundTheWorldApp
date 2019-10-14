@@ -54,12 +54,13 @@ namespace AroundTheWorld.Prism.ViewModels
             if (response.IsSuccess)
             {
                 IsRunning = false;
-                Title = response.Message;
+
+                var list = (List<CountriesResponse>)response.Result;
+                Countries = new ObservableCollection<CountriesResponse>(list);
 
             }
 
-            var list = (List<CountriesResponse>)response.Result;
-            _countries = new ObservableCollection<CountriesResponse>(list);
+            
 
 
         }
