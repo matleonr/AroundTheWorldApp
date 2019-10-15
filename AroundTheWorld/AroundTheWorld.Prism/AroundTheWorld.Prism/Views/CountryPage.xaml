@@ -64,11 +64,11 @@
                     FontSize="Small"
                     Text="{Binding Country.Capital}"
                     TextColor="White"/>
-                <!--<Label
+                <Label
                     Text="Languages:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>-->
+                    TextColor="White"/>
                 <ListView
                     BackgroundColor="Transparent"
                     HeightRequest="145"

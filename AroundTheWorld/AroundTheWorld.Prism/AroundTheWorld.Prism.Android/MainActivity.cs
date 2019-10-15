@@ -7,10 +7,10 @@ using Prism.Ioc;
 namespace AroundTheWorld.Prism.Droid
 {
     [Activity(
-        Label = "AroundTheWorld.Prism",
+        Label = "Around the World",
         Icon = "@mipmap/ic_launcher",
         Theme = "@style/MainTheme",
-        MainLauncher = false,
+        MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

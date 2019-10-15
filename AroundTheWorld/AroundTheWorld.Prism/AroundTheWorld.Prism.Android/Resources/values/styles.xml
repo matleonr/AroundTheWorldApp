@@ -28,8 +28,8 @@
     <item name="colorAccent">#FF4081</item>
   </style>
 
-    <style name="Theme.Splash" parent="android.Theme">
-        <item name="android:windowBackground">@Backgrounds/SplashArt</item>
-        <item name="android:windowNoTitle">true</item>
-    </style>
+    <!-- <style name="Theme.Splash" parent="android:Theme"> -->
+        <!--<item name="android:windowBackground">@Backgrounds/SplashArt</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+    <!--</style>-->
 </resources>
