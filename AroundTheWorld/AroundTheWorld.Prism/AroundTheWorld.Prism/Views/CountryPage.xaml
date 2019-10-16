@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AroundTheWorld.Prism.Views.CountryPage"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     Title="{Binding Title}" BackgroundColor="Black">
     
     <StackLayout
@@ -183,8 +184,16 @@
                     HasUnevenRows="True"
                     ItemsSource="{Binding Country.TopLevelDomain}">
                 </ListView>
+                <Label
+                    Text="Map:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="White"/>
+                <maps:Map
+        	        x:Name="MyMap"
+                    IsShowingUser="False"
+                	MapType="Hybrid"/>
                 </StackLayout>
-            <!--</Grid>-->
         </ScrollView>
     </StackLayout>
 </ContentPage>
