@@ -23,11 +23,7 @@
             
 
              Styles 
-            <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource colorPrimary}" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="TextColor" Value="{StaticResource colorFontInverse}" />
-            </Style>
+            
 
             <Style x:Key="secondaryButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource colorSecondary}" />

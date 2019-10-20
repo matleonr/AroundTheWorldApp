@@ -6,19 +6,24 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace AroundTheWorld.Prism.ViewModels 
+namespace AroundTheWorld.Prism.ViewModels
 {
-    public class CountriesIndexPageViewModel : ViewModelBase
+    public class CountriesIndexPageViewModel : ViewModelBase//, INotifyPropertyChanged
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private bool _isRunning;
         private ObservableCollection<CountryItemViewModel> _countries;
+        private List<Sorteable> _sorteables;
+        private Sorteable _sorteable;
 
-        public CountriesIndexPageViewModel( INavigationService navigationService,
+
+        public CountriesIndexPageViewModel(INavigationService navigationService,
                                             IApiService apiService)
             : base(navigationService)
         {
@@ -26,8 +31,8 @@ namespace AroundTheWorld.Prism.ViewModels
             _navigationService = navigationService;
             Title = "Choose a Country!";
 
-            LoadCountries();
-
+            LoadCountries(1);
+            Sorteables = SorteablesFilled();
 
         }
 
@@ -37,13 +42,48 @@ namespace AroundTheWorld.Prism.ViewModels
             set => SetProperty(ref _countries, value);
         }
 
+        public List<Sorteable> Sorteables
+        {
+            get => _sorteables;
+            set => SetProperty(ref _sorteables, value);
+        }
+
+        public Sorteable Sorteable
+        {
+            get => _sorteable;
+            set
+            { 
+                SetProperty(ref _sorteable, value);
+                if (value.Key == 2)
+                {
+                    LoadCountries(value.Key);
+                    //Countries = new ObservableCollection<CountryItemViewModel>
+                    //Countries = Countries.OrderByDescending(c => c.Area);
+                }
+            }
+        }
+
+        public List<Sorteable> SorteablesFilled()
+        {
+            var sorteables = new List<Sorteable>()
+            {
+                new Sorteable(){Key = 1, Value = "name"},
+                new Sorteable(){Key = 2, Value = "Size"},
+                new Sorteable(){Key = 3, Value = "Population"}
+            };
+
+            return sorteables;
+        }
+
         public bool IsRunning
         {
             get => _isRunning;
             set => SetProperty(ref _isRunning, value);
         }
 
-        public async void LoadCountries() {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public async void LoadCountries(int ValueOrder) {
 
             IsRunning = true;
 
@@ -82,15 +122,23 @@ namespace AroundTheWorld.Prism.ViewModels
                     Translations = c.Translations,
                     Flag = c.Flag,
                     Cioc = c.Cioc
-                    
+
                 }));
+
+                if (ValueOrder == 2)
+                {
+                    Countries.OrderByDescending(c => c.Area);
+                }
 
             }
 
-            
-
-
         }
 
+    }
+
+    public class Sorteable
+    {
+        public int Key { get; set; }
+        public string Value { get; set; }
     }
 }

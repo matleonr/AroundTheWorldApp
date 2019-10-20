@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="AroundTheWorld.Prism.Views.CountriesIndexPage"
-             Title="{Binding Title}" BackgroundColor="Black">
+             BackgroundColor="{StaticResource colorBackgroud}"
+             Title="{Binding Title}">
 
   
   
 
     <StackLayout
         Padding="10">
+        <Picker
+            Grid.Column="1"
+            Grid.Row="2"          
+            ItemsSource="{Binding Sorteables}"
+            SelectedItem="{Binding Sorteable}"
+            ItemDisplayBinding="{Binding Value}"
+            Title="Order country by:"
+            TextColor="{StaticResource colorFont}"/>
         <ListView
             BackgroundColor="Transparent"
             SeparatorVisibility="None"
@@ -21,7 +30,8 @@
                         <Frame
                             CornerRadius="10"
                             HasShadow="True"
-                            Margin="0,0,0,3">
+                            Margin="0,0,0,3"
+                            BackgroundColor="{StaticResource colorPrimary}">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SelectCountryCommand}"/>
                             </Frame.GestureRecognizers>
@@ -61,46 +71,54 @@
                                         Grid.Row="0"
                                         Text="Country:"
                                         FontAttributes="Bold"
-                                        FontSize="Small"/>
+                                        FontSize="Small"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="1"
                                         Grid.Row="0"
                                         FontSize="Small"
-                                        Text="{Binding Name}"/>
+                                        Text="{Binding Name}"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="0"
                                         Grid.Row="1"
                                         Text="Capital:"
                                         FontAttributes="Bold"
-                                        FontSize="Small"/>
+                                        FontSize="Small"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="1"
                                         Grid.Row="1"
                                         FontSize="Small"
-                                        Text="{Binding Capital}"/>
+                                        Text="{Binding Capital}"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="0"
                                         Grid.Row="2"
                                         Text="Population:"
                                         FontAttributes="Bold"
-                                        FontSize="Small"/>
+                                        FontSize="Small"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="1"
                                         Grid.Row="2"
                                         FontSize="Small"
-                                        Text="{Binding Population}"/>
+                                        Text="{Binding Population}"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="0"
                                         Grid.Row="3"
                                         Text="Native Name:"
                                         FontAttributes="Bold"
-                                        FontSize="Small"/>
+                                        FontSize="Small"
+                                        TextColor="{StaticResource colorFont}"/>
                                     <Label
                                         Grid.Column="1"
                                         Grid.Row="3"
                                         FontSize="Small"
                                         HorizontalTextAlignment="Start"
-                                        Text="{Binding NativeName}"/> 
+                                        Text="{Binding NativeName}"
+                                        TextColor="{StaticResource colorFont}"/> 
                                 </Grid>
                             </Grid>
                         </Frame>

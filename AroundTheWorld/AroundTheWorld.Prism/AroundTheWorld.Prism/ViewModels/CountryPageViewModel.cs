@@ -41,7 +41,6 @@ namespace AroundTheWorld.Prism.ViewModels
             {
                 Country = parameters.GetValue<CountriesResponse>("country");
                 Title = Country.Name;
-                //Languages = Country.Languages;
                 Translations = new Translations();
                 Translations = Country.Translations;
                 Languages = new ObservableCollection<Language>(Country.Languages);
