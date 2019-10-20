@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
+using AroundTheWorld.Prism.Helpers;
 using AroundTheWorld.Prism.Models;
+using Newtonsoft.Json;
 using Prism.Navigation;
 
 namespace AroundTheWorld.Prism.ViewModels
@@ -14,7 +16,12 @@ namespace AroundTheWorld.Prism.ViewModels
         public CountryPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
-            Title = "Country";
+            var country = JsonConvert.DeserializeObject<CountriesResponse>(Settings.Country);
+            Country = country;
+            Title = country.Name;
+            Translations = new Translations();
+            Translations = country.Translations;
+            Languages = new ObservableCollection<Language>(country.Languages);
         }
 
         public CountriesResponse Country
@@ -37,14 +44,14 @@ namespace AroundTheWorld.Prism.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (parameters.ContainsKey("country"))
-            {
-                Country = parameters.GetValue<CountriesResponse>("country");
-                Title = Country.Name;
-                Translations = new Translations();
-                Translations = Country.Translations;
-                Languages = new ObservableCollection<Language>(Country.Languages);
-            }
+            //if (parameters.ContainsKey("country"))
+            //{
+            //    Country = parameters.GetValue<CountriesResponse>("country");
+            //    Title = Country.Name;
+            //    Translations = new Translations();
+            //    Translations = Country.Translations;
+            //    Languages = new ObservableCollection<Language>(Country.Languages);
+            //}
         }
     }
 }

@@ -3,6 +3,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using AroundTheWorld.Prism.Models;
 using System;
+using AroundTheWorld.Prism.Helpers;
 
 namespace AroundTheWorld.Prism.ViewModels
 {
@@ -22,7 +23,8 @@ namespace AroundTheWorld.Prism.ViewModels
         {
             var parameters = new NavigationParameters();
             parameters.Add("country", this);
-            await _navigationService.NavigateAsync("CountryPage",parameters);
+            Settings.Country = JsonConvert.SerializeObject(this);
+            await _navigationService.NavigateAsync("CountryPage");
         }
 
     }

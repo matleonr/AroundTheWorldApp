@@ -1,5 +1,7 @@
-﻿using AroundTheWorld.Prism.Models;
+﻿using AroundTheWorld.Prism.Helpers;
+using AroundTheWorld.Prism.Models;
 using AroundTheWorld.Prism.Services;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -56,7 +58,7 @@ namespace AroundTheWorld.Prism.ViewModels
                 SetProperty(ref _sorteable, value);
                 if (value.Key == 2)
                 {
-                    LoadCountries(value.Key);
+                    //LoadCountries(value.Key);
                     //Countries = new ObservableCollection<CountryItemViewModel>
                     //Countries = Countries.OrderByDescending(c => c.Area);
                 }
@@ -96,6 +98,7 @@ namespace AroundTheWorld.Prism.ViewModels
                 IsRunning = false;
 
                 var list = (List<CountriesResponse>)response.Result;
+                
                 Countries = new ObservableCollection<CountryItemViewModel>(list.Select(c => new CountryItemViewModel(_navigationService)
                 {
                     Name = c.Name,
@@ -124,10 +127,10 @@ namespace AroundTheWorld.Prism.ViewModels
                     Cioc = c.Cioc
 
                 }));
-
+             
                 if (ValueOrder == 2)
                 {
-                    Countries.OrderByDescending(c => c.Area);
+                    //Countries.OrderByDescending(c => c.Area);
                 }
 
             }

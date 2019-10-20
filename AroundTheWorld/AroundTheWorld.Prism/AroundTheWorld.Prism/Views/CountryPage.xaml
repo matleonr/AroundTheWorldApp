@@ -5,11 +5,12 @@
     x:Class="AroundTheWorld.Prism.Views.CountryPage"
     xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-    Title="{Binding Title}" BackgroundColor="Black">
+    Title="{Binding Title}" BackgroundColor="{StaticResource colorBackgroud}">
     
     <StackLayout
         Padding="10">
-        <Frame BackgroundColor="White"
+        <Frame
+            BackgroundColor="{StaticResource colorPrimary}"
             CornerRadius="10"
             HasShadow="True"
             Margin="0,0,0,3">
@@ -32,44 +33,30 @@
                     AbsoluteLayout.LayoutBounds="0,0,1,1"
                     AbsoluteLayout.LayoutFlags="All"
                     Padding="10">
-        <!--<Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="145"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="145"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>-->
                 <StackLayout>
                 <Label
                     Text="Name:"
                     FontAttributes="Bold"
                     FontSize="Default"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     FontSize="Small"
                     Text="{Binding Country.Name}"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Capital:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     FontSize="Small"
                     Text="{Binding Country.Capital}"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Languages:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <ListView
                     BackgroundColor="Transparent"
                     HeightRequest="145"
@@ -78,7 +65,7 @@
                     ItemsSource="{Binding Languages}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding name}" TextColor="White"/>
+                            <TextCell Text="{Binding name}" TextColor="{StaticResource colorFont}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -86,97 +73,97 @@
                     Text="German name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.de}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Spanish name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.es}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="French name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.fr}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Japanese name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.ja}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Italian name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.it}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Portuguese(Brazil) name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.br}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Portuguese name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.pt}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Dutch name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.nl}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Croatian name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.hr}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Farsi name:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="{Binding Translations.fa}"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <Label
                     Text="Top Level Domain:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <ListView
                     BackgroundColor="Transparent"  
                     SeparatorVisibility="None"
@@ -188,11 +175,15 @@
                     Text="Map:"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    TextColor="White"/>
+                    TextColor="{StaticResource colorFont}"/>
                 <maps:Map
         	        x:Name="MyMap"
                     IsShowingUser="False"
-                	MapType="Hybrid"/>
+                	MapType="Hybrid"
+                    HeightRequest="300"
+                    HasScrollEnabled="False"
+                    HasZoomEnabled="False"
+                    />
                 </StackLayout>
         </ScrollView>
     </StackLayout>

@@ -30,6 +30,7 @@ namespace AroundTheWorld.Prism
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.Register<IApiService, ApiService>();
+            containerRegistry.Register<IGeolocatorService, GeolocatorService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<CountriesIndexPage, CountriesIndexPageViewModel>();
             containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
