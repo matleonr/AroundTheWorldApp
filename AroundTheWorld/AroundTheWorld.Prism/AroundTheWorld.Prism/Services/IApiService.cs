@@ -5,7 +5,7 @@ namespace AroundTheWorld.Prism.Services
 {
     public interface IApiService
     {
-        Task<bool> CheckConnection(string url);
+        Task<bool> CheckConnection();
 
         Task<Response> GetCountriesInfoAsync<T>(
             string urlBase);

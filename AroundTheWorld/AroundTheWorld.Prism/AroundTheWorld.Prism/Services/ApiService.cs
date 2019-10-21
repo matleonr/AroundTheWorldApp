@@ -12,8 +12,9 @@ namespace AroundTheWorld.Prism.Services
 {
     public class ApiService : IApiService
     {
-        public async Task<bool> CheckConnection(string url)
+        public async Task<bool> CheckConnection()
         {
+            var url = "https://restcountries.eu/";
             if (!CrossConnectivity.Current.IsConnected)
             {
                 return false;

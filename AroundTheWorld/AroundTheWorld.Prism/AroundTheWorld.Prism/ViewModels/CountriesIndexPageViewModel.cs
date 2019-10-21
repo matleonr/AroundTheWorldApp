@@ -96,6 +96,20 @@ namespace AroundTheWorld.Prism.ViewModels
             IsRunning = true;
 
             var url = App.Current.Resources["UrlAPI"].ToString();
+            var connection = await _apiService.CheckConnection();
+            if (!connection)
+            {
+                IsRunning = false;
+                if (string.IsNullOrEmpty(Settings.Countries))
+                {
+                    await App.Current.MainPage.DisplayAlert("Oops!", "You need access to internet to first load the countries", "Accept");
+                    return;
+                }
+                //Countries = JsonConvert.DeserializeObject<ObservableCollection<CountryItemViewModel>>(Settings.Countries);
+                return;
+
+
+            }
 
             var response = await _apiService.GetCountriesInfoAsync<CountriesResponse>(url);
 
