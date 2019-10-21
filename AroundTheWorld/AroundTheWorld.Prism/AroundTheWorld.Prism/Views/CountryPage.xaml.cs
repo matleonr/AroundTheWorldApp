@@ -31,7 +31,7 @@ namespace AroundTheWorld.Prism.Views
                 country.Latlng[1]);
             MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
                 position,
-                Distance.FromKilometers(100)));
+                Distance.FromKilometers((double)country.Area/1234)));
         }
     }
 }

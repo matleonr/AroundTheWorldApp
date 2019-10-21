@@ -179,10 +179,9 @@
                 <maps:Map
         	        x:Name="MyMap"
                     IsShowingUser="False"
-                	MapType="Hybrid"
+                	MapType="Street"
                     HeightRequest="300"
                     HasScrollEnabled="False"
-                    HasZoomEnabled="False"
                     />
                 </StackLayout>
         </ScrollView>
