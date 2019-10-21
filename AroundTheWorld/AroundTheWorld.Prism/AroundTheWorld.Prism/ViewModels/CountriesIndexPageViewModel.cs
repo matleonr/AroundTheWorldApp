@@ -33,7 +33,7 @@ namespace AroundTheWorld.Prism.ViewModels
             _navigationService = navigationService;
             Title = "Choose a Country!";
 
-            LoadCountries(1);
+            LoadCountries();
             Sorteables = SorteablesFilled();
 
         }
@@ -41,7 +41,14 @@ namespace AroundTheWorld.Prism.ViewModels
         public ObservableCollection<CountryItemViewModel> Countries
         {
             get => _countries;
-            set => SetProperty(ref _countries, value);
+            set
+            {
+                SetProperty(ref _countries, value);
+                //if (Sorteable.Key == 2)
+                //{
+                //    value.OrderByDescending(c => c.Area);
+                //}
+            }
         }
 
         public List<Sorteable> Sorteables
@@ -56,12 +63,11 @@ namespace AroundTheWorld.Prism.ViewModels
             set
             { 
                 SetProperty(ref _sorteable, value);
-                if (value.Key == 2)
-                {
-                    //LoadCountries(value.Key);
-                    //Countries = new ObservableCollection<CountryItemViewModel>
-                    //Countries = Countries.OrderByDescending(c => c.Area);
-                }
+                
+                //LoadCountries();
+                //Countries = new ObservableCollection<CountryItemViewModel>
+                //Countries = Countries.OrderByDescending(c => c.Area);
+                
             }
         }
 
@@ -85,7 +91,7 @@ namespace AroundTheWorld.Prism.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public async void LoadCountries(int ValueOrder) {
+        public async void LoadCountries() {
 
             IsRunning = true;
 
@@ -127,11 +133,7 @@ namespace AroundTheWorld.Prism.ViewModels
                     Cioc = c.Cioc
 
                 }));
-             
-                if (ValueOrder == 2)
-                {
-                    //Countries.OrderByDescending(c => c.Area);
-                }
+                Settings.Countries = JsonConvert.SerializeObject(Countries);
 
             }
 
