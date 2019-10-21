@@ -6,21 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using AroundTheWorld.Prism.Models;
 using Newtonsoft.Json;
-//using Plugin.Connectivity;
+using Plugin.Connectivity;
 
 namespace AroundTheWorld.Prism.Services
 {
     public class ApiService : IApiService
     {
-        //public async Task<bool> CheckConnection(string url)
-        //{
-        //    if (!CrossConnectivity.Current.IsConnected)
-        //    {
-        //        return false;
-        //    }
+        public async Task<bool> CheckConnection(string url)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return false;
+            }
 
-        //    return await CrossConnectivity.Current.IsRemoteReachable(url);
-        //}
+            return await CrossConnectivity.Current.IsRemoteReachable(url);
+        }
 
         public async Task<Response> GetCountriesInfoAsync<T>(
             string urlBase)
