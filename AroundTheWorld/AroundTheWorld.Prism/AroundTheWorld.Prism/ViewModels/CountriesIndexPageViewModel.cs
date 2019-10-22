@@ -63,11 +63,22 @@ namespace AroundTheWorld.Prism.ViewModels
             set
             { 
                 SetProperty(ref _sorteable, value);
+
+                if (value.Key == 1)
+                {
+                    Countries = new ObservableCollection<CountryItemViewModel>(Countries.OrderBy(c => c.Name));
+                }
+                if (value.Key == 2)
+                {
+                    Countries = new ObservableCollection<CountryItemViewModel>(Countries.OrderByDescending(c => c.Area));
+                }
+                if (value.Key == 3)
+                {
+                    Countries = new ObservableCollection<CountryItemViewModel>(Countries.OrderByDescending(c => c.Population));
+                }
                 
-                //LoadCountries();
-                //Countries = new ObservableCollection<CountryItemViewModel>
                 //Countries = Countries.OrderByDescending(c => c.Area);
-                
+
             }
         }
 

@@ -26,6 +26,10 @@ namespace AroundTheWorld.Prism.Views
         private async void MoveMapToCurrentCountryAsync()
         {
             var country = JsonConvert.DeserializeObject<CountriesResponse>(Settings.Country);
+            if (double.IsNaN((double)country.Area))
+            {
+                country.Area = 500;
+            }
             var position = new Position(
                 country.Latlng[0],
                 country.Latlng[1]);

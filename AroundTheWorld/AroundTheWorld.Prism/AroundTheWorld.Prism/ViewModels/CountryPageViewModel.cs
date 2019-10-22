@@ -12,6 +12,8 @@ namespace AroundTheWorld.Prism.ViewModels
         private CountriesResponse _country;
         private ObservableCollection<Language> _languages;
         private Translations _translations;
+        private ObservableCollection<Currency> _currencies;
+        private ObservableCollection<RegionalBloc> _regionalBlocs;
 
         public CountryPageViewModel(INavigationService navigationService) : base(navigationService)
         {
@@ -22,6 +24,8 @@ namespace AroundTheWorld.Prism.ViewModels
             Translations = new Translations();
             Translations = country.Translations;
             Languages = new ObservableCollection<Language>(country.Languages);
+            Currencies = new ObservableCollection<Currency>(country.Currencies);
+            RegionalBlocs = new ObservableCollection<RegionalBloc>(country.RegionalBlocs);
         }
 
         public CountriesResponse Country
@@ -40,6 +44,18 @@ namespace AroundTheWorld.Prism.ViewModels
         {
             get => _languages;
             set => SetProperty(ref _languages, value);
+        }
+
+        public ObservableCollection<Currency> Currencies
+        {
+            get => _currencies;
+            set => SetProperty(ref _currencies, value);
+        }
+
+        public ObservableCollection<RegionalBloc> RegionalBlocs
+        {
+            get => _regionalBlocs;
+            set => SetProperty(ref _regionalBlocs, value);
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

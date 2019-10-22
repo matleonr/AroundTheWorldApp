@@ -70,6 +70,15 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    Text="Population:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Population}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
                     Text="German name:"
                     FontAttributes="Bold"
                     FontSize="Small"
@@ -171,6 +180,182 @@
                     HasUnevenRows="True"
                     ItemsSource="{Binding Country.TopLevelDomain}">
                 </ListView>
+                <Label
+                    Text="alpha2Code:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Alpha2Code}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="alpha3Code:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Alpha3Code}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Calling Codes:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"  
+                    SeparatorVisibility="None"
+                    HeightRequest="140"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Country.CallingCodes}">
+                </ListView>
+                <Label
+                    Text="Alt Spellings:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"  
+                    SeparatorVisibility="None"
+                    HeightRequest="140"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Country.AltSpellings}">
+                </ListView>
+                <Label
+                    Text="Region:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Region}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Subregion:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Subregion}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Latitude/longitude:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"  
+                    SeparatorVisibility="None"
+                    HeightRequest="140"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Country.Latlng}">
+                </ListView>
+                <Label
+                    Text="Demonym:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Demonym}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Area:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Area}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Gini:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.Gini}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Timezones:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"  
+                    SeparatorVisibility="None"
+                    HeightRequest="140"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Country.Timezones}">
+                </ListView>
+                <Label
+                    Text="Borders:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"  
+                    SeparatorVisibility="None"
+                    HeightRequest="140"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Country.Borders}">
+                </ListView>
+                <Label
+                    Text="NativeName:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.NativeName}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="NumericCode:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    FontSize="Small"
+                    Text="{Binding Country.NumericCode}"
+                    TextColor="{StaticResource colorFont}"/>
+                <Label
+                    Text="Currencies:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                <ListView
+                    BackgroundColor="Transparent"
+                    HeightRequest="145"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Currencies}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding name}" TextColor="{StaticResource colorFont}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label
+                    Text="RegionalBlocs:"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    TextColor="{StaticResource colorFont}"/>
+                    <ListView
+                    BackgroundColor="Transparent"
+                    HeightRequest="145"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding RegionalBlocs}">      
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" TextColor="{StaticResource colorFont}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                    
                 <Label
                     Text="Map:"
                     FontAttributes="Bold"
