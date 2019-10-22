@@ -19,8 +19,6 @@ namespace AroundTheWorld.Prism.Views
             InitializeComponent();
             _geolocatorService = geolocatorService;
             MoveMapToCurrentCountryAsync();
-
-
         }
 
         private async void MoveMapToCurrentCountryAsync()
